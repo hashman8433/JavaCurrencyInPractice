@@ -23,13 +23,13 @@ public class CachedFactorizer extends AbstractCurrencyServlet implements Servlet
 
     public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
         BigInteger i = extractFromRequest(req);
-        BigInteger[] factors = lastFactors;
+        BigInteger[] factors = null;
 
         synchronized (this) {
             ++hits;
             if (i.equals(lastNumber)) {
                 ++cacheHits;
-                factors = lastFactors;
+                factors = lastFactors.clone();
             }
         }
 
