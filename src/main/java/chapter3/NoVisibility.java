@@ -17,22 +17,9 @@ public class NoVisibility {
     // for result obvious  Thread sleep 3s
     public static void main(String[] args) {
         new ReaderThread().start();
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        ready = true;
-
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         number = 42;
-
+        ready = true;
+        // probably print 0
 
     }
 

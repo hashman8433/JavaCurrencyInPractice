@@ -1,5 +1,8 @@
 package chapter3;
 
+import annotation.NotThreadSafe;
+
+@NotThreadSafe
 public class UnsafeStates {
     private String[] states = new String[] {
             "AK", "AL"

@@ -1,5 +1,7 @@
 package chapter2;
 
+import annotation.ThreadSafe;
+
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
@@ -8,6 +10,7 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
+@ThreadSafe
 public class CountingFactorizer extends AbstractCurrencyServlet implements Servlet {
 
     private final AtomicLong count = new AtomicLong(0);
@@ -16,7 +19,7 @@ public class CountingFactorizer extends AbstractCurrencyServlet implements Servl
         return count.get();
     }
 
-    public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
+    public void service(ServletRequest req, ServletResponse resp) {
         BigInteger i = extractFromRequest(req);
         BigInteger[] factors = factor(i);
         count.incrementAndGet();

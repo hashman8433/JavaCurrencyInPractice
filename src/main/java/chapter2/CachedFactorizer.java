@@ -1,6 +1,7 @@
 package chapter2;
 
 import annotation.GuardeBy;
+import annotation.ThreadSafe;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -9,6 +10,7 @@ import javax.servlet.ServletResponse;
 import java.io.IOException;
 import java.math.BigInteger;
 
+@ThreadSafe
 public class CachedFactorizer extends AbstractCurrencyServlet implements Servlet {
 
     @GuardeBy("this") private BigInteger lastNumber;
@@ -21,7 +23,7 @@ public class CachedFactorizer extends AbstractCurrencyServlet implements Servlet
         return (double) cacheHits / (double) hits;
     }
 
-    public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
+    public void service(ServletRequest req, ServletResponse resp) {
         BigInteger i = extractFromRequest(req);
         BigInteger[] factors = null;
 

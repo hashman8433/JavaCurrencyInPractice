@@ -1,9 +1,12 @@
 package chapter2;
 
 
+import annotation.ThreadSafe;
+
 import javax.servlet.*;
 import java.math.BigInteger;
 
+@ThreadSafe
 public class StatelessFactorizer extends AbstractCurrencyServlet implements Servlet {
 
 

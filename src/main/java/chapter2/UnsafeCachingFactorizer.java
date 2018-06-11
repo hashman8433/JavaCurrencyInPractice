@@ -17,7 +17,7 @@ public class UnsafeCachingFactorizer extends AbstractCurrencyServlet implements 
     private final AtomicReference<BigInteger[]> lastFactors
             = new AtomicReference<BigInteger[]>();
 
-    public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
+    public void service(ServletRequest req, ServletResponse resp) {
         BigInteger i = extractFromRequest(req);
         if (i.equals(lastNumber.get()))
             encodeIntoResponse(resp, lastFactors.get());

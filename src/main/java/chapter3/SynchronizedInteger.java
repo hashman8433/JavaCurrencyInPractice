@@ -1,5 +1,8 @@
 package chapter3;
 
+import annotation.ThreadSafe;
+
+@ThreadSafe
 public class SynchronizedInteger {
 
     private int value;
