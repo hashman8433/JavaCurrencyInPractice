@@ -15,7 +15,7 @@ public class FunctionSynTest implements Runnable {
         System.out.println("=========================" + Thread.currentThread().getName());
         System.out.println("=========================" + Thread.currentThread().getName());
         System.out.println("=========================" + Thread.currentThread().getName());
-        System.out.println("+++++++++++++++++++++++++"+ Thread.currentThread().getName() +"\n\n");
+        System.out.println("+++++++++++++++++++++++++" + Thread.currentThread().getName() +"\n\n");
 
     }
 
@@ -28,7 +28,7 @@ public class FunctionSynTest implements Runnable {
         t1.start();
         t2.start();
 
-        FunctionSynTest func2 = new FunctionSynTest();
+//        FunctionSynTest func2 = new FunctionSynTest();
         Thread t3 = new Thread(func, "thread3");
         t3.start();
     }

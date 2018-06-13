@@ -15,7 +15,6 @@ public class PersonSet {
         return mySet.contains(p);
     }
 
-
     private class Person {
     }
 }
