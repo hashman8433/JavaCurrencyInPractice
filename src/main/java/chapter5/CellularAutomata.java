@@ -85,4 +85,28 @@ public class CellularAutomata {
             maniBoard.waitForConvergence();
         }
     }
+
+    public static void main(String[] args) {
+        final CyclicBarrier cyclicBarrier = new CyclicBarrier(2);
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    System.out.println(cyclicBarrier.await());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (BrokenBarrierException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        t.start();
+        try {
+            System.out.println(cyclicBarrier.await());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (BrokenBarrierException e) {
+            e.printStackTrace();
+        }
+    }
 }
